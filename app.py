@@ -4,8 +4,17 @@ import matplotlib.pyplot as plt
 import seaborn as sns
 import streamlit as st
 
+# URL for the dataset
+DATA_URL = "https://ai2-semanticscholar-cord-19.s3-us-west-2.amazonaws.com/2020-07-16/metadata.csv"
+
+# Function to load data from the URL and cache it
+@st.cache_data
+def load_data():
+    data = pd.read_csv(DATA_URL)
+    return data
+
 # Data Loading and Pre-processing
-data = pd.read_csv('metadata.csv')
+data = load_data()
 
 # Converting 'publish_time' to datetime objects. Invalid dates become NaT.
 data['publish_time'] = pd.to_datetime(data['publish_time'], errors='coerce')

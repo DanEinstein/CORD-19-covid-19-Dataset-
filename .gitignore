@@ -1,0 +1,4 @@
+# Ignore large data files
+metadata.csv
+
+# Ignore other common Python files
