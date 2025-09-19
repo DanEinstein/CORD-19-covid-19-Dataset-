@@ -67,3 +67,4 @@ monthly_counts = data['publish_month'].value_counts().sort_index()
 
 # Streamlit's line_chart works best with a DataFrame where the index is the date.
 st.line_chart(monthly_counts)
+
